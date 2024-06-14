@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  redis-server:
+    build: .
+    ports:
+      - "6379:6379"
+    networks:
+      - redis-net
+
+  redis-client:
+    image: redis:alpine
+    depends_on:
+      - redis-server
+    networks:
+      - redis-net
+    entrypoint: ["sh", "-c", "exec sleep infinity"]
+    # Command to run the Redis client
+    # command: redis-cli -h redis-server -p 6379
+
+networks:
+  redis-net:
+    driver: bridge
