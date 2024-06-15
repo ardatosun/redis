@@ -52,3 +52,5 @@ This project is a simple Redis-like server implemented in Go. It supports basic 
 ### Volumes
 
 The AOF file is stored in a Docker volume to persist data across container restarts. The file is mapped to the `./app` directory in the container.
+
+Inspired by [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) repo
